@@ -6,7 +6,7 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -19,21 +19,15 @@
             py.pkgs.pip
             py.pkgs.virtualenv
             py.pkgs.psycopg
-            py.pkgs.ipython
-            py.pkgs.black
             py.pkgs.ruff
-            py.pkgs.pytest
-            py.pkgs.pytest-django
 
             postgresql
             libpq
 
-            nodejs_22
-            git
             gnumake
-            just
-            jq
             direnv
+            nil
+            nixd
           ];
 
           shellHook = ''
