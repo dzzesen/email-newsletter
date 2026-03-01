@@ -30,7 +30,6 @@
 
           shellHook = ''
             export PYTHONDONTWRITEBYTECODE=1
-            export UV_PYTHON="$(command -v python)"
             export UV_PYTHON_DOWNLOADS=never
             export PGHOST="''${PGHOST:-localhost}"
             export PGPORT="''${PGPORT:-5432}"
@@ -38,7 +37,7 @@
             export PGPASSWORD="''${PGPASSWORD:-postgres}"
             export PGDATABASE="''${PGDATABASE:-dzesen_news}"
 
-            uv sync --frozen --extra dev
+            uv sync --frozen --extra dev --python "$(command -v python)"
             source .venv/bin/activate
 
             echo "Dev shell ready: Python $(python --version | awk '{print $2}')"
