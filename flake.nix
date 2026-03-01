@@ -1,5 +1,5 @@
 {
-  description = "dzesen_news dev environment (Django + django-vtasks + Postgres)";
+  description = "email-newsletter dev environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -16,7 +16,7 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            pkgs.python312
+            python312
             uv
 
             postgresql
